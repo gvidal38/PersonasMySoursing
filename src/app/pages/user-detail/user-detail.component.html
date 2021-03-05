@@ -1,0 +1,92 @@
+<form autocomplete="off" [formGroup]="userForm">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>{{ tituloPantalla }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row">
+        <div class="col col-lg-6">
+          <mat-form-field class="col col-lg-12">
+            <mat-label>Nombre</mat-label>
+            <input matInput formControlName="first" [(ngModel)]="info.first" />
+            <mat-error *ngIf="validarCampo('first')">
+              {{ getErrorMessage("first") }}
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col col-lg-6">
+          <mat-form-field class="col col-lg-12">
+            <mat-label>Apellido</mat-label>
+            <input matInput formControlName="last" [(ngModel)]="info.last" />
+            <mat-error *ngIf="validarCampo('last')">
+              {{ getErrorMessage("last") }}
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="col col-lg-6">
+          <mat-form-field class="col col-lg-12">
+            <mat-label>E-mail</mat-label>
+            <input matInput formControlName="email" [(ngModel)]="info.email" />
+            <mat-error *ngIf="validarCampo('email')">
+              {{ getErrorMessage("email") }}
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col col-lg-6">
+          <mat-form-field class="col col-lg-12">
+            <mat-label>Balance</mat-label>
+            <input
+              matInput
+              formControlName="balance"
+              type="number"
+              [(ngModel)]="info.balance"
+            />
+            <mat-error *ngIf="validarCampo('balance')">
+              {{ getErrorMessage("balance") }}
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col col-lg-6">
+          <mat-form-field class="col col-lg-12">
+            <mat-label>Dirección</mat-label>
+            <input
+              matInput
+              formControlName="address"
+              [(ngModel)]="info.address"
+            />
+            <mat-error *ngIf="validarCampo('address')">
+              {{ getErrorMessage("address") }}
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions class="buttons-right">
+      <div class="row justify-content-end">
+        <div class="col col-sm-1">
+          <button
+            mat-mini-fab
+            matTooltip="Cancelar y regresar"
+            color="basic"
+            aria-label="Example icon button with a menu icon"
+            (click)="handleBack()"
+          >
+            <mat-icon>reply</mat-icon>
+          </button>
+        </div>
+        <div class="col col-sm-1">
+          <button
+            mat-mini-fab
+            matTooltip="Agregar"
+            color="primary"
+            aria-label="Example icon button with a menu icon"
+            (click)="handleSave()"
+          >
+            <mat-icon>add</mat-icon>
+          </button>
+        </div>
+      </div>
+    </mat-card-actions>
+  </mat-card>
+</form>
